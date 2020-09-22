@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: Center(
-
+child: Container(),
 
           ),
 
