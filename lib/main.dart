@@ -1,29 +1,9 @@
 import 'package:flutter/material.dart';
-void main() => runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: Home()
+
+import 'pages/home.dart';
+
+void main() => runApp(new MaterialApp(debugShowCheckedModeBanner: false,
+  home: ScaffoldExample(),
 ));
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TOWDAH'),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-child: Container(),
-
-          ),
-
-
-      floatingActionButton:FloatingActionButton(
-        child: Text('click'),
-        onPressed:(){},
-      ) ,
-    );
-  }
-}
 
