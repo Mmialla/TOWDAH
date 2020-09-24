@@ -22,22 +22,23 @@ class ScaffoldExample extends StatelessWidget {
         ],
 
       ),
+
+
+
       body: Container(
         alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButton()
-             /* InkWell(
-                child: Text('tap me'),
-                onTap: () => debugPrint('...tapped'),
-              )*/
+
             ],
           ),
       ),
     );
   }
 }
+
 
 
 class CustomButton extends StatelessWidget {

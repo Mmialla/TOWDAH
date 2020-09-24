@@ -61,7 +61,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: DancingScript
+    - family: DancingScript
+      fonts:
+        - asset: fonts/DancingScript-Bold.ttf
 
 
   # For details regarding fonts from package dependencies,
