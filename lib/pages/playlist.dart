@@ -15,7 +15,7 @@ class _PlaylistState extends State<Playlist> {
           IconButton(icon: Icon(Icons.more_vert), onPressed: (){})
         ],
         backgroundColor: Colors.teal,
-        title: Text('Towdah'),
+        title: Text('Playlist'),
         centerTitle: false,
       ),
       backgroundColor: Colors.blueGrey[100],
