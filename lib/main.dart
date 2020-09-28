@@ -1,29 +1,17 @@
 import 'package:flutter/material.dart';
-void main() => runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: Home()
-));
+import 'package:towdah/pages/playlist.dart';
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TOWDAH'),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
+import 'package:towdah/pages/favourite.dart';
 
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    routes: {
 
-          ),
+      '/' :(context) => Playlist(),
+      '/fav' : (context) => Fav(),
 
-
-      floatingActionButton:FloatingActionButton(
-        child: Text('click'),
-        onPressed:(){},
-      ) ,
-    );
-  }
+    },
+    // theme: ThemeData.dark(),
+  ));
 }
-
