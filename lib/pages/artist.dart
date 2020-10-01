@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:towdah/pages/artist01.dart';
 
 class Artist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Artists",
           style: TextStyle(
@@ -18,7 +20,8 @@ class Artist extends StatelessWidget {
           ),
         ],
       ),
-      body: SafeArea(
+      body:
+      SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0,7,0,0),
           child: GridView.count(
@@ -43,7 +46,9 @@ class Artist extends StatelessWidget {
                   {
                     Navigator.pushNamed(context, '/artist01');
                   }
+
               ),
+
 
               Column(
                 children: [
@@ -120,6 +125,7 @@ class Artist extends StatelessWidget {
         ),
       ),
     );
+
     // appBar: AppBar(
     //   title: Text('Towdah'),
     //   centerTitle: false,
