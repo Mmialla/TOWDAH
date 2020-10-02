@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:towdah/pages/favourite.dart';
 import 'package:towdah/pages/home.dart';
 import 'package:towdah/pages/playlist.dart';
-import 'package:towdah/pages/player.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,8 +15,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         '/fav': (context) => Fav(),
-        '/playlist': (context) => Playlist(),
-        '/player': (context) => MusicPlayerScreen(),
+        '/playlist': (context) => Playlist()
       },
     );
   }
