@@ -3,10 +3,13 @@ import 'package:towdah/pages/LoginForm.dart';
 import 'package:towdah/pages/favourite.dart';
 import 'package:towdah/pages/home.dart';
 import 'package:towdah/pages/playlist.dart';
+import 'package:firebase_database/firebase_database.dart';
+final FirebaseDatabase database = FirebaseDatabase.instance;
 
 void main() {
   runApp(MyApp());
-}
+  }
+
 
 class MyApp extends StatelessWidget {
   @override

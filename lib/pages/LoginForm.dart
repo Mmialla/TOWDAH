@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:towdah/pages/Registration.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -20,6 +20,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Colors.grey[700],
       body: ListView(
           children: [
             Form(
@@ -31,6 +32,14 @@ class _LoginFormState extends State<LoginForm> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                   children: <Widget>[
+                    Center(
+                    child: Image.asset(
+                      'assets/face.png',
+                      width: 90,
+                      height: 90,
+                      color: Colors.white,
+                    ),
+                    ),
                     Container(
                       padding: EdgeInsets.all(10),
                       child: Text('Towdah',
