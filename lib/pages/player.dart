@@ -4,10 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:music_player/music_player.dart';
 
 class MusicPlayerScreen extends StatefulWidget {
-  String artist;
-  String title;
-  String url;
-  String image;
+  final String artist;
+  final String title;
+  final String url;
+  
 
   MusicPlayerScreen({this.title, this.artist, this.url});
 

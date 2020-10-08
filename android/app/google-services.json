@@ -44,11 +44,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "283419570406-8njp2lua04btdkemif80jajip9dbpk41.apps.googleusercontent.com",
+          "client_id": "283419570406-7gajtm2741hr7nueti0b3o2tr09048tg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "towdah.towdah",
-            "certificate_hash": "d75565028e004f3845963a8549aedc3f9548e27e"
+            "certificate_hash": "b98f2051a12320db4f56081194102121c69480ee"
           }
         },
         {
