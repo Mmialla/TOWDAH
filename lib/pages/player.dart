@@ -1,13 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:music_player/music_player.dart';
 
 class MusicPlayerScreen extends StatefulWidget {
+  final String artist;
+  final String title;
+  final String url;
+  
+
+  MusicPlayerScreen({this.title, this.artist, this.url});
+
   @override
   _MusicPlayerScreenState createState() => _MusicPlayerScreenState();
 }
 
 class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
+  MusicPlayer musicPlayer;
+
+
+  @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+  }
+
+  initPlatformState() {
+    musicPlayer = MusicPlayer();
+  }
+
 
   bool isPlaying=false;
   @override
@@ -59,12 +80,12 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                 ),
               ),
               Text(
-                  "Music Name",
+                  widget.title,
                   style: TextStyle(
                     fontSize: 20,
                   )
               ),
-              Text("Artist Name"),
+              Text(widget.artist),
               SizedBox(height: 20,),
               Slider(
                 onChanged: (v){},
@@ -85,9 +106,24 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                   IconButton(
                     iconSize: 50,
                     onPressed: (){
-                      setState(() {
-                        isPlaying=!isPlaying;
+                      if(isPlaying){
+                        setState(() {
+                        isPlaying = true;
                       });
+                      musicPlayer.play(
+                          MusicItem(
+                            trackName: '',
+                            albumName: '',
+                            artistName: '',
+                            url: 'https://firebasestorage.googleapis.com/v0/b/music-51934.appspot.com/o/rythms%2FKim%20Walker-Smith%20-%20Protector%20(Live).mp3?alt=media&token=b9e37d20-6f23-4fd1-b1f3-4e5afd8fcebf',
+                            //coverUrl: '',
+                            duration: Duration(seconds: 255),
+                          ),);}
+                          else{musicPlayer.stop();
+                      setState((){isPlaying = false;});}
+
+
+
                     },
                     icon: Icon(
                       isPlaying?FontAwesomeIcons.pause:FontAwesomeIcons.play,
