@@ -112,6 +112,8 @@ TextEditingController _passwordTextController = new TextEditingController();
                         if(_formKey.currentState.validate()){
                           _formKey.currentState.save();
                           validateAndSubmit();
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => Home()));
                         }
                       },
                           color: Colors.teal,

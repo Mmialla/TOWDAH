@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import "package:firebase_database/firebase_database.dart";
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 final FirebaseAuth _auth = FirebaseAuth.instance;
 class RegisterPage extends StatefulWidget {
   @override
@@ -54,6 +52,7 @@ class _RegisterPageState extends State<RegisterPage>{
                   _formData['email'] = value;
                 },
                 ),
+                SizedBox(height: 40,width:100 ),
                 TextFormField(
                   decoration: InputDecoration(
                       labelText: 'Password', filled: true, fillColor: Colors.white),
@@ -70,6 +69,7 @@ class _RegisterPageState extends State<RegisterPage>{
                     _formData['password'] = value;
                   },
                 ),
+                 SizedBox(height:40 , width:100),
                  TextFormField(
                   decoration: InputDecoration(
                       labelText: 'confirm Password', filled: true, fillColor: Colors.white),
@@ -84,42 +84,27 @@ class _RegisterPageState extends State<RegisterPage>{
                 ),
 
 
-                FlatButton(
-                  color:Colors.teal,
-                  child:Text("create Account"),
-                  onPressed:(){
-                    if( _formKey.currentState.validate()){
-                      _formKey.currentState.save();
-                      _createUser();
-                    }
-                  },
-                ),
-
-
-
-                SizedBox(height: 40, width: 100),
-
-
-
-                Container(
-                  height: 40,
-                  width: 100,
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20),
-                    shadowColor: Colors.greenAccent,
-                    color: Colors.teal,
-                    elevation: 7.0,
+                 Container(
+                   height: 40,
+                   width: 100,
+                   child: Material(
+                     borderRadius: BorderRadius.circular(20),
+                     shadowColor: Colors.greenAccent,
+                     color: Colors.teal,
+                     elevation: 7.0,
                     child: FlatButton(
-                      onPressed: (){
-                        signInWithEmailPassword();
+                      color:Colors.teal,
+                      child:Text("create Account"),
+                      onPressed:(){
+                        if( _formKey.currentState.validate()){
+                          _formKey.currentState.save();
+                          _createUser();
+                          signInWithEmailPassword();
+                        }
                       },
-                      child: Center(
-                        child: Text('sign up', style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
-                        ),
-                      ),
                     ),
-                  ),
-                )
+                ),
+                 ),
               ],
             ),
           )
