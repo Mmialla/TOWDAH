@@ -3,8 +3,10 @@ import 'package:towdah/pages/favourite.dart';
 import 'package:towdah/pages/home.dart';
 import 'package:towdah/pages/playlist.dart';
 import 'package:towdah/pages/player.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -14,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => Home(),
+        '/p': (context) => Home(),
         '/fav': (context) => Fav(),
-        '/playlist': (context) => Playlist(),
+        '/': (context) => Playlist(),
         '/player': (context) => MusicPlayerScreen(),
       },
     );
