@@ -2,111 +2,105 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:firebase_database/firebase_database.dart";
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_core/firebase_core.dart';
 final FirebaseAuth _auth = FirebaseAuth.instance;
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => new _RegisterPageState();
 }
+final _formKey = GlobalKey<FormState>();
 
 class _RegisterPageState extends State<RegisterPage>{
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
-
+  TextEditingController _passwordTextController = new TextEditingController();
+  final Map< String  , dynamic> _formData = {
+    'email': null,
+    'phoneNumber': null,
+    'password': null,
+    'acceptTerms': false
+  };
   @override
 
   Widget build(BuildContext context) {
     return new Scaffold(
-      resizeToAvoidBottomPadding: false,
+      //resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.blueGrey,
-      body: Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage("assets/Artists"),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
+      body: Form(
+        key: _formKey,
         child:ListView(
         children: [
-      Column(
+          Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          // Container(
-          //   color : Colors.grey[300],
-          //   child: Stack(
-          //     children: <Widget>[
-          //       Center(
-          //         child: Container(
-          //           child: Text('Sign Up!',style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.teal),),
-          //           color: Colors.blueGrey,
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          // ),
-          Container(
+
+            Container(
             padding: EdgeInsets.only(top: 10, left: 20, right: 20),
-            child: Column(
+              child: Column(
               children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
-                      labelText: 'NAME',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.teal
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.teal)
-                      )
-                  ),
+
+                TextFormField(
+                      decoration: InputDecoration(
+                          labelText: 'E-Mail', filled: true, fillColor: Colors.white),
+                keyboardType: TextInputType.emailAddress,
+                validator: (String value) {
+                  //begins********************
+                  if (value.isEmpty ||
+                      !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                          .hasMatch(value)) {
+                    return 'Please enter a valid email';
+                  }
+                  return null;
+                }, //ends******************
+                onSaved: (String value) {
+                  _formData['email'] = value;
+                },
                 ),
-                TextField(
-                  controller:emailController,
+                TextFormField(
                   decoration: InputDecoration(
-                      labelText: 'EMAIL',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.teal
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.teal)
-                      )
-                  ),
+                      labelText: 'Password', filled: true, fillColor: Colors.white),
+                  obscureText: true,
+                  controller: _passwordTextController,
+                  validator: (String value) {
+                    //begins**********
+                    if (value.isEmpty || value.length < 6) {
+                      return 'Password invalid,should have more than 6 characters';
+                    }
+                    return null;
+                  }, //end********************
+                  onSaved: (String value) {
+                    _formData['password'] = value;
+                  },
                 ),
-                TextField(
-                  controller: passwordController,
+                 TextFormField(
                   decoration: InputDecoration(
-                      labelText: 'PASSWORD',
-                      labelStyle: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.teal
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.teal)
-                      )
-                  ),
+                      labelText: 'confirm Password', filled: true, fillColor: Colors.white),
+                  obscureText: true,
+                  validator: (String value) {
+                    //begins
+                    if (_passwordTextController.text != value) {
+                      return 'Passwords do not match!';
+                    }
+                    return null;
+                  }, //ends...
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'REPEAT PASSWORD',
-                    labelStyle: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        color: Colors.teal
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.teal)
-                    ),
-                  ),
-                ),
-                FlatButton( 
-                  color:Colors.purple,
+
+
+                FlatButton(
+                  color:Colors.teal,
                   child:Text("create Account"),
-                  onPressed:()=> _createUser(),
+                  onPressed:(){
+                    if( _formKey.currentState.validate()){
+                      _formKey.currentState.save();
+                      _createUser();
+                    }
+                  },
                 ),
+
+
+
                 SizedBox(height: 40, width: 100),
+
+
+
                 Container(
                   height: 40,
                   width: 100,
@@ -117,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage>{
                     elevation: 7.0,
                     child: FlatButton(
                       onPressed: (){
-                        signUpWithEmailPassword();
+                        signInWithEmailPassword();
                       },
                       child: Center(
                         child: Text('sign up', style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
@@ -133,33 +127,29 @@ class _RegisterPageState extends State<RegisterPage>{
       )
   ],
       ),
+
       )
     );
 
   }
 
-  Future signUpWithEmailPassword() async{
-    FirebaseUser user =await _auth.createUserWithEmailAndPassword(email: '${emailController}', password: '${passwordController}')
+  Future signInWithEmailPassword() async{
+    FirebaseUser user =await _auth.signInWithEmailAndPassword(email:  _formData["email"].trim(), password:_formData["password"].trim()  )
         .then((user) {
-          print("User Created ${user.credential}");
+          print("your in already ${user.credential}");
           //print("Email:${user}")
     });
 }
 
- Future _createUser() async{
-    FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: "paulJames@gmal.com", password:"test1235")
+   Future _createUser() async{
+    print("jonathan ${_formData["email"]}");
+    FirebaseUser user = await _auth.createUserWithEmailAndPassword(email:  _formData["email"].trim() , password:_formData["password"].trim() )
         .then((user){
           print("user created");
     }
     );
 
  }
-  //   FirebaseUser user = await _auth.createUserWithEmailAndPassword(
-  //     email:"jonathan@gmail.com",password:"salome");
-  //   .then((user)){
-  //     print("user created ${user.displayname }");
-  //   };
-  // }
 
 }
 
