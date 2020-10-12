@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "283419570406",
+    "firebase_url": "https://music-51934.firebaseio.com",
+    "project_id": "music-51934",
+    "storage_bucket": "music-51934.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283419570406:android:e6ba31554234d457424b27",
+        "android_client_info": {
+          "package_name": "com.yourcompany.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283419570406-cv2nlbe8j33ubr1872fo4c7nsflpa914.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpSyLUhjbBLmIJpHz63RQ8ccJIu1jKiOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283419570406-cv2nlbe8j33ubr1872fo4c7nsflpa914.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283419570406:android:9bae21abacf87494424b27",
+        "android_client_info": {
+          "package_name": "towdah.towdah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283419570406-7gajtm2741hr7nueti0b3o2tr09048tg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "towdah.towdah",
+            "certificate_hash": "b98f2051a12320db4f56081194102121c69480ee"
+          }
+        },
+        {
+          "client_id": "283419570406-cv2nlbe8j33ubr1872fo4c7nsflpa914.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpSyLUhjbBLmIJpHz63RQ8ccJIu1jKiOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283419570406-cv2nlbe8j33ubr1872fo4c7nsflpa914.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
