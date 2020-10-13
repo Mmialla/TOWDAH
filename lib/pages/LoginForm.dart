@@ -24,25 +24,30 @@ TextEditingController _passwordTextController = new TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
-      // decoration: BoxDecoration(
-      //   image: DecorationImage(
-      //     image: AssetImage("assets/Artists.jpg"),
-      //     fit: BoxFit.cover,
-      //   ),
-      // ),
+//       decoration: BoxDecoration(
+//         image: DecorationImage(
+//           image: AssetImage("assets/Artists.jpg"),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
       body:SingleChildScrollView(
 
 
       child:Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        
 
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage("assets/Artists.jpg"),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
+         decoration: BoxDecoration(
+           image: DecorationImage(
+             image: AssetImage("assets/Artists.jpg"),
+             fit: BoxFit.contain,
 
-          child:Padding(
+           ),
+         ),
+       
+
+          child: Padding(
             padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
             child: Stack(
               children: [
@@ -112,6 +117,9 @@ TextEditingController _passwordTextController = new TextEditingController();
                         if(_formKey.currentState.validate()){
                           _formKey.currentState.save();
                           validateAndSubmit();
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => Home()));
                         }
                       },
                           color: Colors.teal,

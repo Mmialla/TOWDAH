@@ -37,7 +37,7 @@ class _PlaylistState extends State<Playlist> {
       appBar: AppBar(
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          PopupMenuButton(
+        PopupMenuButton(
             elevation: 3.2,
             initialValue: choices[1],
             onCanceled: () {
@@ -64,43 +64,43 @@ class _PlaylistState extends State<Playlist> {
       body: StreamBuilder(
           stream: firebaseDb,
           builder: (context, snapshot) {
-            if (!snapshot.hasData)
-              return CircularProgressIndicator();
-
-
+            if (!snapshot.hasData) 
+            return CircularProgressIndicator();
+            
+              
             return ListView.builder(
-                itemCount: snapshot.data.docs.length,
-                itemBuilder: (context, int index) {
-                  return Card(
-                      elevation: 10.8,
-                      color: Colors.white,
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.teal,
-                          child: Icon(Icons.audiotrack, size: 14.0),
-                          radius: 14.0,
-                        ),
-                        trailing: Text('...'),
-                        title: Text(snapshot.data.docs[index]['songName']),
-                        subtitle:
-                        Text(snapshot.data.docs[index]['artistName']),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MusicPlayerScreen(
-                                    title: snapshot.data.docs[index]
-                                    ["songName"],
-                                    artist: snapshot.data.docs[index]
-                                    ["artistName"],
-                                    url: snapshot.data.docs[index]
-                                    ["songUrl"],
-                                  )));
-                        },
-                      ));
-                });
-          }
-      ),
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (context, int index) {
+                    return Card(
+                        elevation:0.0,
+                        color: Colors.white,
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: Colors.teal,
+                            child: Icon(Icons.audiotrack, size: 14.0),
+                            radius: 14.0,
+                          ),
+                          trailing: Text('...'),
+                          title: Text(snapshot.data.docs[index]['songName']),
+                          subtitle:
+                              Text(snapshot.data.docs[index]['artistName']),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MusicPlayerScreen(
+                                          title: snapshot.data.docs[index]
+                                              ["songName"],
+                                          artist: snapshot.data.docs[index]
+                                              ["artistName"],
+                                          url: snapshot.data.docs[index]
+                                              ["songUrl"],
+                                        )));
+                          },
+                        ));
+                  });
+            }
+          ),
 
       bottomNavigationBar: BottomAppBar(
         child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [

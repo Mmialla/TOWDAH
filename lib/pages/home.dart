@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:towdah/pages/playlist.dart';
 
 class Home extends StatelessWidget {
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,10 +12,23 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.teal,
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () => debugPrint('more options coming soon!'),
-          ),
+          PopupMenuButton(
+            elevation: 3.2,
+            initialValue: choices[1],
+            onCanceled: () {
+              print('You have not chossed anything');
+            },
+            tooltip: 'This is tooltip',
+            onSelected: null,
+            itemBuilder: (BuildContext context) {
+              return choices.map((CustomPopupMenu choice) {
+                return PopupMenuItem(
+                  value: choice,
+                  child: Text(choice.title),
+                );
+              }).toList();
+            },
+          )
         ],
       ),
       body: SafeArea(
