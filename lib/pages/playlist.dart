@@ -15,6 +15,7 @@ List<CustomPopupMenu> choices = <CustomPopupMenu>[
   CustomPopupMenu(title: 'Share', icon: Icons.share),
   CustomPopupMenu(title: 'Settings', icon: Icons.settings),
   CustomPopupMenu(title: 'Log-out', icon: Icons.account_circle),
+  CustomPopupMenu(title: 'Upload', icon: Icons.upload_sharp),
 ];
 
 class Playlist extends StatefulWidget {

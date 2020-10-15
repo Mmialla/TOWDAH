@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:towdah/pages/playlist.dart';
 
 class Home extends StatelessWidget {
-  
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +31,12 @@ class Home extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0,6,0,0),
+          padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
           child: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 0,
             mainAxisSpacing: 4,
             children: [
-
               Column(
                 children: [
                   // FlatButton(
@@ -52,39 +49,36 @@ class Home extends StatelessWidget {
               ),
 
               InkWell(
-                child: Column(
-                  children: [
-                    // FlatButton(
-                    //   child: ,
-                    //   onPressed: (){},
-                    // )
-                    Expanded(flex: 10, child: Image.asset('assets/Favorites.jpg')),
-                    Expanded(child: Text('favorites')),
-                  ],
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, '/fav');
-                }
-              ),
+                  child: Column(
+                    children: [
+                      // FlatButton(
+                      //   child: ,
+                      //   onPressed: (){},
+                      // )
+                      Expanded(
+                          flex: 10, child: Image.asset('assets/Favorites.jpg')),
+                      Expanded(child: Text('favorites')),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/fav');
+                  }),
 
               InkWell(
-                child: Column(
-                  children: [
-                    // FlatButton(
-                    //   child: ,
-                    //   onPressed: (){},
-                    // )
-                    Expanded(flex: 10, child: Image.asset('assets/Artists.jpg')),
-                    Expanded(child: Text('Artists')),
-                  ],
-                ),
-                onTap: ()
-                {
-                  Navigator.pushNamed(context, '/artist');
-                }
-              ),
-
-
+                  child: Column(
+                    children: [
+                      // FlatButton(
+                      //   child: ,
+                      //   onPressed: (){},
+                      // )
+                      Expanded(
+                          flex: 10, child: Image.asset('assets/Artists.jpg')),
+                      Expanded(child: Text('Artists')),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/artist');
+                  }),
 
               Column(
                 children: [
@@ -104,7 +98,8 @@ class Home extends StatelessWidget {
                     //   child: ,
                     //   onPressed: (){},
                     // )
-                    Expanded(flex: 10, child: Image.asset('assets/Playlist.jpg')),
+                    Expanded(
+                        flex: 10, child: Image.asset('assets/Playlist.jpg')),
                     Expanded(child: Text('playlist')),
                   ],
                 ),
@@ -115,7 +110,6 @@ class Home extends StatelessWidget {
                 },
               ),
 
-
               // Image.asset('assets/Artists.jpg'),
               // Image.asset('assets/Library.jpg'),
               // Image.asset('assets/Recents.jpg'),
@@ -124,32 +118,7 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      
     );
-    // appBar: AppBar(
-    //   title: Text('Towdah'),
-    //   centerTitle: false,
-    //   actions: [
-    //
-    //     IconButton(icon: Icon(Icons.search), onPressed: meshy_),
-    //     IconButton(icon: Icon(Icons.more_vert),
-    //       onPressed: () =>debugPrint('more options coming soon!'),
-    //     ),
-    //   ],
-    //
-    // ),
-    //
-    //
-    //
-    // body: Container(
-    //   alignment: Alignment.center,
-    //     child: Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: [
-    //         CustomButton()
-    //
-    //       ],
-    //     ),
-    // ),
-    // );
   }
 }

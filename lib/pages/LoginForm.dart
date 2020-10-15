@@ -33,22 +33,22 @@ TextEditingController _passwordTextController = new TextEditingController();
       body:SingleChildScrollView(
 
 
+      
       child:Container(
+       
+        
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        
+          //  child: Image(
+          //    image: AssetImage("assets/pg.jpg"),),
+          color: Colors.white,
+             
 
-         decoration: BoxDecoration(
-           image: DecorationImage(
-             image: AssetImage("assets/Artists.jpg"),
-             fit: BoxFit.contain,
-
-           ),
-         ),
-       
-
+           
+         
+  
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
             child: Stack(
               children: [
 
@@ -61,10 +61,10 @@ TextEditingController _passwordTextController = new TextEditingController();
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children:<Widget>[
                       Center(
-                        child: Image.asset('assets/face.png',
-                        width:70,
-                          height:70,
-                          color:Colors.white,
+                        child: Image.asset('assets/log.png',
+                        width:50,
+                          height:50,
+                          //color:Colors.white,
 
                         ),
                       ),
@@ -212,7 +212,10 @@ TextEditingController _passwordTextController = new TextEditingController();
           ),
 
              ),
-      ),
+       ),
+        
+      
+      
     );
           }
              //user signing in
