@@ -264,6 +264,8 @@ class _LoginFormState extends State<LoginForm> {
     return null;
   }
 
+  //user reset password
+
   Future <void> resetPassword() async {
     if (_formData["email"].trim() != null) {
       await _auth.sendPasswordResetEmail(email: _formData["email"]);
