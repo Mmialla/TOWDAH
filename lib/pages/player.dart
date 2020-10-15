@@ -147,7 +147,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      musicPlayer.onPlayNext(setState((){}));
+                      musicPlayer.onPlayNext();
                     },
                     icon: Icon(Icons.skip_next, size: 40.0,),
                   ),

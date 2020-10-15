@@ -10,11 +10,10 @@ final _formKey = GlobalKey<FormState>();
 
 class _RegisterPageState extends State<RegisterPage>{
   TextEditingController _passwordTextController = new TextEditingController();
-<<<<<<< Updated upstream
-  final Map< String  , dynamic> _formData = {
-=======
+
+
   final Map< String , dynamic> _formData = {
->>>>>>> Stashed changes
+
     'email': null,
     'phoneNumber': null,
     'password': null,
@@ -139,11 +138,9 @@ class _RegisterPageState extends State<RegisterPage>{
   }
 
   Future signInWithEmailPassword() async{
-<<<<<<< Updated upstream
-    FirebaseUser user =await _auth.signInWithEmailAndPassword(email:  _formData["email"].trim(), password:_formData["password"].trim()  )
-=======
+
     FirebaseUser user =await _auth.signInWithEmailAndPassword(email:  _formData["email"], password:_formData["password"]  )
->>>>>>> Stashed changes
+
         .then((user) {
           print("your in already ${user.credential}");
           //print("Email:${user}")
@@ -151,12 +148,9 @@ class _RegisterPageState extends State<RegisterPage>{
 }
 
    Future _createUser() async{
-    print("jonathan ${_formData["email"]}");
-<<<<<<< Updated upstream
-    FirebaseUser user = await _auth.createUserWithEmailAndPassword(email:  _formData["email"].trim() , password:_formData["password"].trim() )
-=======
+   // print("jonathan ${_formData["email"]}");
+
     FirebaseUser user = await _auth.createUserWithEmailAndPassword(email: "jonathan" , password:"qwerty" )
->>>>>>> Stashed changes
         .then((user){
           print("user created");
     }

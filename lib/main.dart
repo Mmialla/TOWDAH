@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:towdah/pages/LoginForm.dart';
 import 'package:towdah/pages/favourite.dart';
 import 'package:towdah/pages/home.dart';
-import 'package:towdah/pages/player.dart';
 import 'package:towdah/pages/playlist.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,11 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => Home(),
-        '/hom':(context) => LoginForm(),
+        '/home': (context) => Home(),
+        '/':(context) => LoginForm(),
         '/fav': (context) => Fav(),
         '/playlist': (context) => Playlist(),
-        '/player':(context) => MusicPlayerScreen(),
 
       },
     );
