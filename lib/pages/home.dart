@@ -160,12 +160,12 @@ class Home extends StatelessWidget {
     if (choice == Constants.settings){
       signOutGoogle();
       signOut();
-      // runApp(
-      //     new MaterialApp(
-      //       home: LoginForm(),
-      //     )
-      //
-      // );
+      runApp(
+          new MaterialApp(
+            home: LoginForm(),
+          )
+
+      );
       }
     if (choice == Constants.sign_out){
 
