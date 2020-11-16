@@ -13,18 +13,19 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   TextEditingController _passwordTextController = new TextEditingController();
+  TextEditingController _emailTextController = new TextEditingController();
   final Map<String, dynamic> _formData = {
     'email': null,
     'phoneNumber': null,
     'password': null,
     'acceptTerms': false
   };
-
+  bool _success;
   final _formKey = GlobalKey <FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold (
       backgroundColor: Colors.blueGrey,
       // decoration: BoxDecoration(
       //   image: DecorationImage(
@@ -112,7 +113,7 @@ class _LoginFormState extends State<LoginForm> {
                                 _formData['password'] = value;
                               },
                             ),
-                            FlatButton(onPressed: () {
+                            FlatButton(onPressed: ()async {
                               print("you pressed this button");
                               if (_formKey.currentState.validate()) {
                                 _formKey.currentState.save();
@@ -230,6 +231,25 @@ class _LoginFormState extends State<LoginForm> {
       //print("Email:${user}")
     }
     );
+    if (user != null) {
+
+      setState(() {
+
+        _success = true;
+
+        _formData["email"] = user.email;
+
+      });
+
+    } else {
+
+      setState(() {
+
+        _success = false;
+
+      });
+
+    }
   }
 
   // google signing in
@@ -273,4 +293,12 @@ class _LoginFormState extends State<LoginForm> {
       return "please enter your email";
     }
   }
+  @override
+  void dispose(){
+    _emailTextController.dispose();
+    _passwordTextController.dispose();
+    super.dispose();
+  }
+
+
         }
