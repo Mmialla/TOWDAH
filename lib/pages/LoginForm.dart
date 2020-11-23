@@ -113,13 +113,12 @@ class _LoginFormState extends State<LoginForm> {
                                 _formData['password'] = value;
                               },
                             ),
-                            FlatButton(onPressed: ()async {
+                            FlatButton(onPressed: () {
                               print("you pressed this button");
                               if (_formKey.currentState.validate()) {
                                 _formKey.currentState.save();
                                 validateAndSubmit();
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) => Home()));
+
                               }
                             },
                                 color: Colors.teal,
@@ -136,7 +135,7 @@ class _LoginFormState extends State<LoginForm> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  padding: EdgeInsets.only(top: 15, left: 20),
+                                  padding: EdgeInsets.only(top: 15, left: 15),
                                   child: InkWell(
 
                                     child: Text('Forgot Password',
@@ -152,7 +151,7 @@ class _LoginFormState extends State<LoginForm> {
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(top: 15, left: 20),
+                                  padding: EdgeInsets.only(top: 15, left: 15),
                                   child: InkWell(
 
                                     child: Text('sing in with google',
@@ -223,6 +222,7 @@ class _LoginFormState extends State<LoginForm> {
 
   //user signing in
   Future validateAndSubmit() async {
+    // ignore: deprecated_member_use
     FirebaseUser user = await _auth.signInWithEmailAndPassword(
         email: _formData["email"].trim(),
         password: _formData["password"].trim())
@@ -237,8 +237,9 @@ class _LoginFormState extends State<LoginForm> {
 
         _success = true;
 
-        _formData["email"] = user.email;
-
+        //_formData["email"] = user.email
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => Home()));
       });
 
     } else {
@@ -249,7 +250,7 @@ class _LoginFormState extends State<LoginForm> {
 
       });
 
-    }
+     }
   }
 
   // google signing in
@@ -302,3 +303,4 @@ class _LoginFormState extends State<LoginForm> {
 
 
         }
+

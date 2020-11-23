@@ -9,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
-
+bool _success;
 
 class Playlist extends StatefulWidget {
   @override
@@ -113,12 +113,12 @@ class _PlaylistState extends State<Playlist> {
   //choose action on the popupmenu
   void choiceAction(String choice) {
     if (choice == Constants.settings){
-      signOutGoogle();
-      signOut() ;
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginForm();}), ModalRoute.withName('/'));
 
     }
     if (choice == Constants.sign_out){
+      signOutGoogle();
+      signOut() ;
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginForm();}), ModalRoute.withName('/'));
 
     }
     if (choice == Constants.subscribe){
