@@ -229,28 +229,30 @@ class _LoginFormState extends State<LoginForm> {
         .then((user) {
       print("your in already ${user.credential}");
       //print("Email:${user}")
-    }
-    );
-    if (user != null) {
+      if (user != null) {
 
-      setState(() {
+        setState(() {
 
-        _success = true;
+          _success = true;
 
-        //_formData["email"] = user.email
+          //_formData["email"] = user.email
+
+        });
         Navigator.push(context, MaterialPageRoute(
             builder: (context) => Home()));
-      });
 
-    } else {
+      } else {
 
-      setState(() {
+        setState(() {
 
-        _success = false;
+          _success = false;
 
-      });
+        });
 
-     }
+      }
+    }
+    );
+
   }
 
   // google signing in

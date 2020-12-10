@@ -158,6 +158,9 @@ class Home extends StatelessWidget {
     //choose action on the popupmenu
   void choiceAction(String choice) {
     if (choice == Constants.settings){
+
+      }
+    if (choice == Constants.sign_out){
       signOutGoogle();
       signOut();
       runApp(
@@ -166,8 +169,6 @@ class Home extends StatelessWidget {
           )
 
       );
-      }
-    if (choice == Constants.sign_out){
 
     }
     if (choice == Constants.subscribe){
